@@ -1,0 +1,346 @@
+/* EQuran.css */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* Main Layout & Theme Variables */
+.quran-container {
+  font-family: 'Outfit', 'Geist Variable', sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, oklch(0.99 0.01 100 / 40%), oklch(0.97 0.01 90 / 60%));
+  color: oklch(0.15 0 0);
+  transition: all 0.3s ease;
+  padding-bottom: 120px; /* Padding for floating audio player */
+}
+
+.dark .quran-container {
+  background: radial-gradient(circle at top, oklch(0.18 0.01 140 / 30%), oklch(0.12 0 0));
+  color: oklch(0.95 0 0);
+}
+
+/* Glassmorphism Header Panel */
+.quran-header-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+}
+
+.dark .quran-header-panel {
+  background: rgba(30, 30, 30, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Quranic Decorative Frame & Background */
+.quran-paper-frame {
+  background-color: #fbf8eb;
+  border: 2px solid oklch(0.75 0.1 80); /* Antique gold border */
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s ease;
+}
+
+.dark .quran-paper-frame {
+  background-color: #171612;
+  border: 2px solid oklch(0.55 0.08 80);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Amiri Font for Noble Quranic Arabic */
+.arabic-text {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  line-height: 2.2;
+  direction: rtl;
+  text-align: right;
+  word-spacing: 4px;
+  color: #1a2e1e; /* Dark green/slate for Arabic text */
+}
+
+.dark .arabic-text {
+  color: #e0f2e9;
+}
+
+.arabic-verse-span {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 4px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+}
+
+.arabic-verse-span:hover {
+  background-color: oklch(0.93 0.05 130 / 50%);
+  transform: translateY(-1px);
+}
+
+.dark .arabic-verse-span:hover {
+  background-color: oklch(0.25 0.05 140 / 40%);
+}
+
+/* Beautiful Glowing Emerald Highlights for Reciting Verse */
+.arabic-verse-span.green-active {
+  background: linear-gradient(135deg, oklch(0.92 0.09 135), oklch(0.88 0.11 140));
+  border-color: oklch(0.8 0.15 140);
+  color: #0d3813 !important;
+  box-shadow: 0 4px 20px oklch(0.9 0.1 140 / 40%);
+  transform: scale(1.02);
+  font-weight: bold;
+}
+
+.dark .arabic-verse-span.green-active {
+  background: linear-gradient(135deg, oklch(0.25 0.08 140), oklch(0.2 0.09 145));
+  border-color: oklch(0.35 0.1 145 / 40%);
+  color: #a7f3d0 !important;
+  box-shadow: 0 4px 20px oklch(0.25 0.08 140 / 50%);
+}
+
+/* Tamil Translation Typography */
+.tamil-text {
+  font-size: 17px;
+  line-height: 2;
+  text-align: justify;
+  color: oklch(0.25 0.01 90);
+  transition: all 0.3s ease;
+}
+
+.dark .tamil-text {
+  color: oklch(0.85 0.01 90);
+}
+
+.tamil-verse-span {
+  display: block;
+  padding: 14px 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  background-color: transparent;
+  margin-bottom: 8px;
+}
+
+.tamil-verse-span:hover {
+  background-color: oklch(0.96 0.01 100);
+  border-left-color: oklch(0.6 0.08 140 / 30%);
+}
+
+.dark .tamil-verse-span:hover {
+  background-color: oklch(0.18 0.01 100 / 30%);
+  border-left-color: oklch(0.4 0.08 140 / 30%);
+}
+
+.tamil-verse-span.green-active {
+  background-color: oklch(0.94 0.05 135 / 40%);
+  border-left: 4px solid oklch(0.5 0.12 140);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.dark .tamil-verse-span.green-active {
+  background-color: oklch(0.2 0.05 140 / 20%);
+  border-left: 4px solid oklch(0.4 0.12 140);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Advanced Floating Audio Control Bar */
+.quran-audio-player-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  width: 90%;
+  max-width: 768px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 16px 28px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.quran-audio-player-bar.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dark .quran-audio-player-bar {
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Styled Select Dropdowns */
+.quran-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 14px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.dark .quran-select {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cbd5e1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Sliding Drawer/Overlay for Introductions */
+.quran-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.quran-drawer-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.quran-drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 550px;
+  background: oklch(0.99 0.005 90);
+  z-index: 101;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-col: column;
+}
+
+.quran-drawer-panel.active {
+  transform: translateX(0);
+}
+
+.dark .quran-drawer-panel {
+  background: oklch(0.18 0.005 90);
+}
+
+/* Custom Scrollbar for Premium Feel */
+.quran-scrollable::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.quran-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quran-scrollable::-webkit-scrollbar-thumb {
+  background: oklch(0.85 0.02 100);
+  border-radius: 4px;
+}
+
+.dark .quran-scrollable::-webkit-scrollbar-thumb {
+  background: oklch(0.3 0.02 100);
+}
+
+.quran-scrollable::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.65 0.08 140 / 50%);
+}
+
+/* Animation Micro-effects */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 20px oklch(0.9 0.1 140 / 40%);
+  }
+  50% {
+    box-shadow: 0 4px 28px oklch(0.88 0.14 140 / 60%);
+  }
+}
+
+.arabic-verse-span.green-active {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Premium Traditional 3x3 Table Layout for Noble Quran */
+.quran-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.quran-table td.quran-corner {
+  width: 35px;
+  height: 35px;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  padding: 0;
+}
+
+.quran-table td.quran-horizontal {
+  height: 35px;
+  background-size: auto 35px;
+  background-repeat: repeat-x;
+  padding: 0;
+}
+
+.quran-table td.quran-vertical {
+  width: 35px;
+  background-size: 35px auto;
+  background-repeat: repeat-y;
+  padding: 0;
+}
+
+.quran-paper-frame {
+  background-color: #fbf8eb;
+  padding: 30px;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.dark .quran-paper-frame {
+  background-color: #1a1915;
+}
+
+/* Dark mode traditional ornament color adjustments via filters */
+.dark .quran-table td.quran-corner,
+.dark .quran-table td.quran-horizontal,
+.dark .quran-table td.quran-vertical {
+  filter: invert(0.9) sepia(0.3) saturate(1.8) hue-rotate(145deg) brightness(0.7);
+}
+
+/* Custom responsiveness for smaller screens to reduce border width to avoid crowding */
+@media (max-width: 640px) {
+  .quran-table td.quran-corner {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+  }
+  .quran-table td.quran-horizontal {
+    height: 20px;
+    background-size: auto 20px;
+  }
+  .quran-table td.quran-vertical {
+    width: 20px;
+    background-size: 20px auto;
+  }
+  .quran-paper-frame {
+    padding: 16px;
+  }
+}
+
